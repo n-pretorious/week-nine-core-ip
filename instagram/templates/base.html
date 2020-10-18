@@ -13,12 +13,14 @@
 
   {% block styles %}
     {% bootstrap_css %}
+    <script src="https://kit.fontawesome.com/7b7df4a8c9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/basestyles.css' %}">
   {% endblock %}
 
 </head>
 <body>
-    {% block content %} 
+    {% block content %}
+    {% include 'partials/navbar.html'%}
     
     {% endblock %}
 

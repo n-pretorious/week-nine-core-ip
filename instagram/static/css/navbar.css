@@ -1,0 +1,40 @@
+.nav-list {
+    margin: 0;
+    padding: 10px 0px;
+}
+
+.navbar {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-brand {
+    font-size: 25px;
+}
+
+.icon-list {
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.icons {
+    margin: 0 6px;
+    padding: 5px;
+    list-style-type: none;
+}
+
+.fas {
+    font-size: 25px;
+    /* color: black; */
+}
+
+.fas:hover {
+    color: #fb3958;
+    cursor: pointer;
+}
+
+.active {
+    color: red;
+}

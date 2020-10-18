@@ -1,0 +1,34 @@
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+{% endblock %}
+
+<div class="wrapper">
+  <div class="container">
+    <div class="nav-list">
+      <nav class="navbar">
+        <a href="/" class="navbar-brand mr-0 font-weight-bold" id="brand">Instagram</a> 
+
+        <div class="navbar-nav mx-auto text-center" id="nav-items">
+          <form action="" method='post' class="form-inline">
+            <input class="form-control mr-sm-3 mr-lg-4" id="navsearch"  name='' value="" placeholder="Search...">
+            <button class="btn my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div> 
+
+        <ul class="icon-list">
+          <li class="icons"><i class="fas fa-home active" onclick="selectIcon(0)"></i></li>
+          <li class="icons"><i class="fas fa-compass" onclick="selectIcon(1)"></i></li>
+          <li class="icons"><i class="fas fa-paper-plane" onclick="selectIcon(2)"></i></li>
+          <li class="icons"><i class="fas fa-heart" onclick="selectIcon(3)"></i></li>
+          <li class="icons"><i class="fas fa-user" onclick="selectIcon(4)"></i></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+{% block scripts %}
+    <script src="{% static 'js/navbar.js' %}"></script>
+{% endblock %}
