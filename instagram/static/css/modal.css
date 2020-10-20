@@ -1,0 +1,66 @@
+.modal-title {
+    width: 7%;
+    height: 7%;
+}
+
+.userName {
+    font-size: large;
+}
+
+.likes {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.imagepreview {
+    width: 100%;
+    height: 500px;
+}
+
+.modaltextarea {
+    background: 0 0;
+    border: 0;
+    display: flex;
+    flex-grow: 1;
+    font-size: medium;
+    max-height: 80px;
+    outline: 0;
+    padding: 0;
+    resize: none;
+    width: 0;
+}
+
+.modal-submit,
+.modal-submit:visited,
+a.modal-submit,
+a.modal-submit:visited {
+    -webkit-box-direction: normal;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-rendering: auto;
+    align-items: flex-start;
+    font: 400 13.3333px Arial;
+    appearance: none;
+    background: 0 0;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    text-transform: inherit;
+    text-overflow: ellipsis;
+    user-select: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+    width: auto;
+    border: 0;
+    color: #0095f6;
+    color: rgba(var(--d69, 0, 149, 246), 1);
+    display: inline;
+    padding: 0;
+    position: relative;
+}
+
+.blue {
+    color: #0095f6;
+}
