@@ -44,10 +44,11 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <div class="footer-div mr-auto w-100">
-            <form class="form-inline">
-              <textarea aria-label="Add a comment…" placeholder="Add a comment…" autocomplete="off" autocorrect="off" style="height: 18px;" class="modaltextarea"></textarea>
+            <form action="{% url 'homepage' %}" method="POST" class="form-inline" id="commentForm">
+            {% csrf_token %}
+              <textarea aria-label="Add a comment…" placeholder="Add a comment…" autocomplete="off" autocorrect="off" style="height: 18px;" class="modaltextarea" name="comment"></textarea>
 
-              <button class="modal-submit" type="submit" disabled="">Post</button>
+              <button class="modal-submit" type="submit">Post</button>
             </form>       
           </div>
 
