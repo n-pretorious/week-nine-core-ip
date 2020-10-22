@@ -9,13 +9,13 @@ def home(request):
     allPhotos = Image.objects.all()
     title = "home"
 
-    if request.method == "POST":
-        # igComment = request.POST.get('comment')
-        form = request.POST
-        postedComment = form.get('comment')
+    # if request.method == "POST":
+    #     # igComment = request.POST.get('comment')
+    #     form = request.POST
+    #     postedComment = form.get('comment')
 
-        comment = Image(comment=postedComment)
-        comment.save()
+    #     comment = Image(comment=postedComment)
+    #     comment.save()
 
     context = {"images": allPhotos, "title": title}
 
