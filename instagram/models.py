@@ -1,12 +1,13 @@
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django.core.exceptions import ObjectDoesNotExist
+
 # import datetime as dt
 
 
 class Profile(models.Model):
-    photo = CloudinaryField('photo')
+    photo = CloudinaryField("photo")
     name = models.CharField(max_length=15)
     userName = models.CharField(max_length=15, null=True)
     bio = models.CharField(max_length=50, null=True, blank=True)
@@ -29,7 +30,7 @@ class Profile(models.Model):
             prlObject = cls.objects.get(id=pk)
             return prlObject
         except ObjectDoesNotExist:
-            message = 'Profile does not exist'
+            message = "Profile does not exist"
             return message
 
     @classmethod
@@ -37,24 +38,34 @@ class Profile(models.Model):
         profileUpdate = cls.getImageById(pk)
         if profileUpdate:
             Profile.objects.filter(id=data[pk]).update(
-                photo=data['photo'], name=data['name'], bio=data['bio']
+                photo=data["photo"], name=data["name"], bio=data["bio"]
             )
-            message = 'Image was updated successfully'
+            message = "Image was updated successfully"
             return message
         else:
-            message = 'Image does not exist'
+            message = "Image does not exist"
             return message
+
+
+class Comment(models.Model):
+    comment = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    pubDate = models.DateTimeField(auto_now=True)
 
 
 class Image(models.Model):
-    image = CloudinaryField('image', null=True)
+    image = CloudinaryField("image", null=True)
     imageCaption = models.CharField(max_length=30)
     profile = models.ForeignKey(
-        Profile, on_delete=models.CASCADE, related_name='imageProfile'
+        Profile, on_delete=models.CASCADE, related_name="imageProfile"
     )
-    # editor = models.ForeignKey(User,on_delete=models.CASCADE)
-    likes = models.PositiveIntegerField(default=0)
-    comments = models.PositiveIntegerField(default=0)
+    comment = models.ForeignKey(
+        Comment, on_delete=models.CASCADE, related_name="imageComment",
+        null=True
+    )
+    # sender = models.ForeignKey(User,on_delete=models.CASCADE)
+    noOfLikes = models.PositiveIntegerField(default=0)
+    noOfComments = models.PositiveIntegerField(default=0)
     pubDate = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -72,7 +83,7 @@ class Image(models.Model):
             imgObject = cls.objects.get(id=pk)
             return imgObject
         except ObjectDoesNotExist:
-            message = 'Image does not exist'
+            message = "Image does not exist"
             return message
 
     @classmethod
@@ -80,14 +91,14 @@ class Image(models.Model):
         imageUpdate = cls.getImageById(pk)
         if imageUpdate:
             Image.objects.filter(id=pk).update(image=newImage)
-            message = 'Image was updated successfully'
+            message = "Image was updated successfully"
             return message
         else:
-            message = 'Image does not exist'
+            message = "Image does not exist"
             return message
 
     # list images from most recent method
     @classmethod
     def timeline(cls):
-        timelineImages = cls.objects.latest('pub_date')
+        timelineImages = cls.objects.latest("pub_date")
         return timelineImages

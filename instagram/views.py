@@ -1,5 +1,5 @@
 from django.http import request
-from instagram.models import Image
+from instagram.models import Comment, Image
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
@@ -8,10 +8,14 @@ from django.http import HttpResponse
 def home(request):
     allPhotos = Image.objects.all()
     title = "home"
-    
+
     if request.method == "POST":
-      igComment = request.POST.get('comment')
-      print(igComment)
+        # igComment = request.POST.get('comment')
+        form = request.POST
+        postedComment = form.get('comment')
+
+        comment = Image(comment=postedComment)
+        comment.save()
 
     context = {"images": allPhotos, "title": title}
 

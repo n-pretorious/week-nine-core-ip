@@ -9,7 +9,8 @@
 }
 
 .navbar-brand {
-    font-size: 25px;
+    font-size: large;
+    color: black;
 }
 
 .icon-list {
@@ -27,7 +28,6 @@
 
 .fas {
     font-size: 25px;
-    /* color: black; */
 }
 
 .fas:hover {

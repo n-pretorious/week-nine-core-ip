@@ -56,7 +56,7 @@
 		<div class="gallery">
 
     {% for img in images%}
-			<div class="gallery-item" tabindex="0" onclick="showModal('{{ img.image.url }}', '{{ img.profile.photo.url }}', '{{ img.profile.userName }}', '{{ img.likes}}', '{{ img.comments}}', '{{ img.pubDate}}')">
+			<div class="gallery-item" tabindex="0" onclick="showModal('{{ img.image.url }}', '{{ img.profile.photo.url }}', '{{ img.profile.userName }}', '{{ img.imageCaption }}', '{{ img.likes}}', '{{ img.comments}}', '{{ img.pubDate}}')">
 
         <img src="{{ img.image.url }}" class="gallery-image" alt="" id="imageresource">
 
