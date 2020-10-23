@@ -21,15 +21,12 @@
 
 First clone the repository from Github and switch to the new directory:
 
-    $ git clone git@github.com/{{ USERNAME }}/{{ project_name }}.git
-    $ cd {{ project_name }}
-    
+    $ git clone git@github.com/<username>/<project_name>.git
+    $ cd <project_name>
 
 ## Usage
 
-On your favorite editor...
-
-### Activate the virtualenv for your project
+### Activate the virtual enviroment for your project
 
     $ python3 -m venv --without-pip virtual
     $ source virtual/bin/activate
@@ -42,28 +39,37 @@ Install project dependencies:
 
     $ pip install -r requirements.txt
 
+### Setup database
+
+    $ psql
+    $ CREATE TABLE <table_name>;
+
+### Setup cloudinary
+
+If you don't have an account proceed to [https://cloudinary.com/users/register/free] and register to get cloudinary account details
+
 ## Environment variables
 
-The `ENVIRONMENT` variable loads the correct settings.
+The `ENVIRONMENT` variable loads the correct settings. Fill in the correct credentials
 
-``` 
-CLOUD_NAME=''
-API_KEY=''
-API_SECRET=''
-SECRET_KEY=''
-DEBUG=bolean
-DB_NAME='instclone'
-DB_USER=''
-DB_PASSWORD=''
-DB_HOST=''
-MODE=''
-ALLOWED_HOSTS='*'
-DISABLE_COLLECTSTATIC='' 
-```
+    ```.env
+    CLOUD_NAME=''
+    API_KEY=''
+    API_SECRET=''
+    SECRET_KEY=''
+    DEBUG=bolean
+    DB_NAME='instclone'
+    DB_USER=''
+    DB_PASSWORD=''
+    DB_HOST=''
+    MODE=''
+    ALLOWED_HOSTS='*'
+    DISABLE_COLLECTSTATIC=''
+    ```
 
 Then simply apply the migrations:
 
-    $ python manage.py migrateÏ
+    $ python manage.py migrate
 
 You can now run the development server:
 
