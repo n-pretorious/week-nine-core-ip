@@ -29,7 +29,7 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 if config("MODE") == "dev":
     DATABASES = {
         "default": {
-            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
             "NAME": config("DB_NAME"),
             "USER": config("DB_USER"),
             "PASSWORD": config("DB_PASSWORD"),
@@ -160,3 +160,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # configuring the location for media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# Redirect after login and logout
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
