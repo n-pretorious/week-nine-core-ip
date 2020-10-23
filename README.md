@@ -83,7 +83,7 @@ You can now run the development server:
 | Unfollow a user | Click unfollow button in profile | Unfollow button toggles to follow|
 | Search a user |  Username | A modal view appears with a link as user's profile picture, username and name that leads to user's profile |
 | Explore search result | Click on a particular search result  | Redirect to a user's profile |
-| Explore a post in user's profile | Click on a particilar post | See the post on modal view |
+| Explore a post in user's profile | Click on a particular post | See the post on modal view |
 | Like a post | Click on like button | Button turns blue and likes increase by 1 |
 | Unlike a post | Click on like button | Button turns black and likes decreas by 1 |
 | Comment on a post | Enter comment in comment section and click post button | Comment appears on the comment's section |
