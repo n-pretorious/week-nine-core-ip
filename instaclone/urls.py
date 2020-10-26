@@ -21,7 +21,7 @@ from instagram import views as instaViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'', include('instagram.urls')),
+    path('', include('instagram.urls')),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', instaViews.logout, (settings.LOGOUT_REDIRECT_URL)),

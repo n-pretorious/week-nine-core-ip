@@ -1,6 +1,7 @@
-function likeToggle(likes) {
+function likeToggle() {
     // alert('test')
     $('.likesbtn').toggleClass('blue');
+    $('#likebutton').submit()
 }
 
 

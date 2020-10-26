@@ -28,9 +28,9 @@
 			<div class="profile-stats">
 
 				<ul>
-					<li><span class="profile-stat-count">164</span> posts</li>
-					<li><span class="profile-stat-count">188</span> followers</li>
-					<li><span class="profile-stat-count">206</span> following</li>
+					<li><span class="profile-stat-count">0</span> posts</li>
+					<li><span class="profile-stat-count">0</span> followers</li>
+					<li><span class="profile-stat-count">0</span> following</li>
 				</ul>
 
 			</div>
@@ -56,15 +56,15 @@
 		<div class="gallery">
 
     {% for img in images%}
-			<div class="gallery-item" tabindex="0" onclick="showModal('{{ img.image.url }}', '{{ img.profile.photo.url }}', '{{ img.profile.userName }}', '{{ img.imageCaption }}', '{{ img.likes}}', '{{ img.comment.comment}}', '{{ img.pubDate}}')">
+			<div class="gallery-item" tabindex="0" onclick="showModal('{{ img.image.url }}', '{{ img.profile.photo.url }}', '{{ img.profile.userName }}', '{{ img.imageCaption }}', '{{ img.noOfLikes}}', '{{ img.comment.comment }}', '{{ img.comment.author }}')">
 
         <img src="{{ img.image.url }}" class="gallery-image" alt="" id="imageresource">
 
 				<div class="gallery-item-info">
 
 					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> {{ img.likes }} </li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> {{ img.comments }} </li>
+						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> {{ img.noOfLikes }} </li>
+						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> {{ img.noOfComments }} </li>
 					</ul>
 
 				</div>

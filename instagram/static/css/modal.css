@@ -7,6 +7,11 @@
     font-size: large;
 }
 
+.commentDiv,
+.caption {
+    font-size: small;
+}
+
 .likes {
     font-size: medium;
     font-weight: bold;

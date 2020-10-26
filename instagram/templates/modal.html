@@ -38,6 +38,12 @@
             <span id="noOfLikes"></span>
           </div>
 
+          <!--form for likes -->
+          <form id="likebutton" method="POST" action={% url 'profile' %}>
+          {% csrf_token %}
+          <input type="hidden" name="like" value="1">
+          </form>
+
           <!-- image caption -->
           <div class="caption ml-3">
             <span class="font-weight-bold" id='userNameCap'></span>
@@ -45,8 +51,8 @@
           </div>
 
           <div class="commentDiv ml-3">
-            <p class="mt-2">View all comments</p>
-            <p id="comments"></p>
+            <p class="mt-2 font-weight-bold">View all comments</p>
+            <span class="font-weight-bold" id="author"></span> <span id="comments"></span>
           </div>
         </div>
 
@@ -55,7 +61,7 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <div class="footer-div mr-auto w-100">
-            <form action="{% url 'homepage' %}" method="POST" class="form-inline" id="commentForm">
+            <form action="{% url 'profile' %}" method="POST" class="form-inline" id="commentForm">
             {% csrf_token %}
               <textarea aria-label="Add a comment…" placeholder="Add a comment…" autocomplete="off" autocorrect="off" style="height: 18px;" class="modaltextarea" name="comment"></textarea>
 

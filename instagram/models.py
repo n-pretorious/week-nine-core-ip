@@ -14,6 +14,8 @@ class Profile(models.Model):
     posts = models.PositiveIntegerField(null=True, blank=True)
     followers = models.PositiveIntegerField(default=0)
     following = models.PositiveIntegerField(default=0)
+    followers = models.ManyToManyField('self', related_name='is_following',blank=True)
+    following = models.ManyToManyField('self', related_name='following',blank=True)
 
     def __str__(self):
         return self.name
@@ -46,9 +48,23 @@ class Profile(models.Model):
             message = "Image does not exist"
             return message
 
+class UserFollowing(models.Model):
+    userId = models.ForeignKey(Profile, related_name="followingId", on_delete=models.CASCADE)
+    followingUserId = models.ForeignKey(Profile, related_name="followersId", on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True, db_index=True)
+    
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['userId','followingUserId'],  name="unique_followers")
+        ]
+
+        ordering = ["-created"]
+
+    def __str__(self):
+        f"{self.userId} follows {self.followingUserId}"
 
 class Comment(models.Model):
-    comment = models.TextField()
+    comment = models.TextField(null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     pubDate = models.DateTimeField(auto_now=True)
 
@@ -60,8 +76,7 @@ class Image(models.Model):
         Profile, on_delete=models.CASCADE, related_name="imageProfile"
     )
     comment = models.ForeignKey(
-        Comment, on_delete=models.CASCADE, related_name="imageComment",
-        null=True
+        Comment, on_delete=models.CASCADE, related_name="imageComment", null=True
     )
     # sender = models.ForeignKey(User,on_delete=models.CASCADE)
     noOfLikes = models.PositiveIntegerField(default=0)
